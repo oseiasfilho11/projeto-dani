@@ -12,10 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
-
 @Entity
 public class Venda {
+
 	private @Id @GeneratedValue Long id;
 	private String numeroVenda;
 	private Double valorTotal;
