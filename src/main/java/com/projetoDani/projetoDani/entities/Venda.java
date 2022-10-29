@@ -23,6 +23,10 @@ public class Venda {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "item_venda", joinColumns = @JoinColumn(name = "Venda_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	private List<Item> listaItens;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "os_venda", joinColumns = @JoinColumn(name = "Venda_id"), inverseJoinColumns = @JoinColumn(name = "Os_id"))
+	private List<OrdemServico> ordem_servico;
 
 	public Venda() {
 	}
