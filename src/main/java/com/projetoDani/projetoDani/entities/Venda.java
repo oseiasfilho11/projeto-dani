@@ -72,7 +72,15 @@ public class Venda {
 	public List<Item> getListaItens() {
 		return listaItens;
 	}
+	
+	public void addOs(OrdemServico os) {
+		this.ordem_servico.add(os);
+	}
 
+	public List<OrdemServico> getOrdem_servicos(){
+		return this.ordem_servico;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

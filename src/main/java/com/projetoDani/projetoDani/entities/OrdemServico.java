@@ -1,5 +1,7 @@
 package com.projetoDani.projetoDani.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -56,5 +58,26 @@ public class OrdemServico {
 	public Long getId() {
 		return id;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo_externo, documento, id, numeroOs, venda);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OrdemServico other = (OrdemServico) obj;
+		return Objects.equals(codigo_externo, other.codigo_externo) && Objects.equals(documento, other.documento)
+				&& Objects.equals(id, other.id) && Objects.equals(numeroOs, other.numeroOs)
+				&& Objects.equals(venda, other.venda);
+	}
+	
+	
 
 }
