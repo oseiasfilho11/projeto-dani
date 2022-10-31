@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class OrdemServico {
 
@@ -47,6 +49,7 @@ public class OrdemServico {
 		this.codigo_externo = codigo_externo;
 	}
 
+	@JsonIgnore
 	public Venda getVenda() {
 		return venda;
 	}

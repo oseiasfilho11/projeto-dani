@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 public class Venda {
 
 	private @Id @GeneratedValue Long id;
+	private String documento;
 	private String numeroVenda;
 	private Double valorTotal;
 	private String filial;
@@ -25,7 +26,7 @@ public class Venda {
 	private List<Item> listaItens;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "os_venda", joinColumns = @JoinColumn(name = "Venda_id"), inverseJoinColumns = @JoinColumn(name = "Os_id"))
+	@JoinTable(name = "os_venda", joinColumns = @JoinColumn(name = "Venda_id"), inverseJoinColumns = @JoinColumn(name = "os_id"))
 	private List<OrdemServico> ordem_servico;
 
 	public Venda() {
@@ -77,7 +78,7 @@ public class Venda {
 		this.ordem_servico.add(os);
 	}
 
-	public List<OrdemServico> getOrdem_servicos(){
+	public List<OrdemServico> getOrdem_servico(){
 		return this.ordem_servico;
 	}
 	
@@ -102,6 +103,14 @@ public class Venda {
 	public String toString() {
 		return "Venda [id=" + id + ", numeroVenda=" + numeroVenda + ", valorTotal=" + valorTotal + ", filial=" + filial
 				+ ", listaItens=" + listaItens + "]";
+	}
+
+	public String getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(String documento) {
+		this.documento = documento;
 	}
 
 }
